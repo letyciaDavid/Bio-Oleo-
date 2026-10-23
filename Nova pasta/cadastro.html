@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BioÓleo Digital - Cadastre seu restaurante ou condomínio para solicitar coletas de óleo vegetal e emitir certificados ambientais.">
+  <meta name="author" content="Letycia dos Santos David">
+  <title>Criar Conta — BioÓleo Digital</title>
+  
+  <!-- Estilos Globais e Design System -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body>
+
+  <main class="auth-wrapper auth-wrapper--cadastro" role="main">
+    
+    <!-- Painel Lateral Visual (Identidade BioÓleo / Desktop) -->
+    <aside class="auth-hero" aria-label="Apresentação do Programa de Coleta BioÓleo">
+      <img src="img/hero_photo.png" alt="" class="auth-hero__bg-image" aria-hidden="true">
+
+      <div class="auth-hero__header">
+        <div class="auth-hero__badge">
+          <span class="auth-hero__badge-dot" aria-hidden="true"></span>
+          <span>Junte-se ao BioÓleo</span>
+        </div>
+
+        <div class="auth-hero__brand">
+          <svg class="auth-hero__brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 10.5c-1.93 0-3.5-1.57-3.5-3.5 0-1.29.7-2.42 1.75-3.04.28 1.45 1.48 2.54 2.95 2.54.42 0 .82-.09 1.18-.25-.33 2.45-2.26 4.25-4.38 4.25z"/>
+          </svg>
+          <h2 class="auth-hero__brand-title">Bio Óleo</h2>
+        </div>
+
+        <p class="auth-hero__slogan">Reciclando hoje, preservando o amanhã.</p>
+      </div>
+
+      <div class="auth-hero__body">
+        <h3 class="auth-hero__highlight">Faça parte da rede de descarte ecológico.</h3>
+        <p class="auth-hero__description">
+          Cadastre seu estabelecimento ou residência para solicitar bombonas, agendar coletas e receber certificados de conformidade ambiental.
+        </p>
+
+        <div class="auth-hero__pills">
+          <div class="auth-hero__pill">
+            <svg class="auth-hero__pill-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+            <span>Sem custos para o gerador de resíduo</span>
+          </div>
+          <div class="auth-hero__pill">
+            <svg class="auth-hero__pill-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/>
+            </svg>
+            <span>Rastreabilidade completa de coletas</span>
+          </div>
+          <div class="auth-hero__pill">
+            <svg class="auth-hero__pill-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+            <span>Recompensas e pontuação por volume</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-hero__footer">
+        <span>Bio Óleo Cianorte &bull; Solução Tech</span>
+        <span>Módulo Web / PWA</span>
+      </div>
+    </aside>
+
+    <!-- Conteúdo do Formulário de Cadastro -->
+    <section class="auth-content" aria-labelledby="cadastroTitle">
+      
+      <!-- Link de Retorno Rápido ao Login -->
+      <a href="login.html" id="linkVoltarLogin" class="auth-back-link" title="Voltar para a tela de login">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+        <span>Voltar ao login</span>
+      </a>
+
+      <header class="auth-header">
+        <div class="auth-header__mobile-logo">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 10.5c-1.93 0-3.5-1.57-3.5-3.5 0-1.29.7-2.42 1.75-3.04.28 1.45 1.48 2.54 2.95 2.54.42 0 .82-.09 1.18-.25-.33 2.45-2.26 4.25-4.38 4.25z"/>
+          </svg>
+          <span>Bio Óleo Digital</span>
+        </div>
+        <h1 id="cadastroTitle" class="auth-title">Criar conta</h1>
+        <p class="auth-subtitle">Preencha seus dados para começar.</p>
+      </header>
+
+      <!-- Mensagens de Alerta e Validação Geral -->
+      <div id="alertBox" class="alert-box" role="alert" aria-live="polite"></div>
+
+      <!-- Formulário de Cadastro de Usuário (Pronto para POST com PHP) -->
+      <form id="cadastroForm" class="auth-form" method="POST" action="cadastro.html" novalidate>
+        
+        <!-- Campo: Nome Completo -->
+        <div class="form-group">
+          <label for="nome" class="form-label">
+            <span>Nome completo <span class="required" aria-hidden="true">*</span></span>
+          </label>
+          <div class="input-wrapper">
+            <svg class="input-icon-left" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            <input 
+              type="text" 
+              id="nome" 
+              name="nome" 
+              class="form-input" 
+              placeholder="Digite seu nome completo ou razão social" 
+              autocomplete="name" 
+              required
+            >
+          </div>
+          <span class="field-error" id="nomeError" role="alert"></span>
+        </div>
+
+        <!-- Linha Dupla: E-mail e Telefone -->
+        <div class="form-row">
+          
+          <!-- Campo: E-mail -->
+          <div class="form-group">
+            <label for="email" class="form-label">
+              <span>E-mail <span class="required" aria-hidden="true">*</span></span>
+            </label>
+            <div class="input-wrapper">
+              <svg class="input-icon-left" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-input" 
+                placeholder="Digite seu e-mail" 
+                autocomplete="email" 
+                required
+              >
+            </div>
+            <span class="field-error" id="emailError" role="alert"></span>
+          </div>
+
+          <!-- Campo: Telefone / WhatsApp -->
+          <div class="form-group">
+            <label for="telefone" class="form-label">
+              <span>Telefone <span class="required" aria-hidden="true">*</span></span>
+            </label>
+            <div class="input-wrapper">
+              <svg class="input-icon-left" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+              <input 
+                type="tel" 
+                id="telefone" 
+                name="telefone" 
+                class="form-input" 
+                placeholder="(00) 00000-0000" 
+                autocomplete="tel" 
+                required
+              >
+            </div>
+            <span class="field-error" id="telefoneError" role="alert"></span>
+          </div>
+
+        </div>
+
+        <!-- Campo: Tipo de Perfil (Conforme DER: Usuario.tipo) -->
+        <div class="form-group">
+          <label for="tipo" class="form-label">
+            <span>Tipo de perfil <span class="required" aria-hidden="true">*</span></span>
+          </label>
+          <div class="input-wrapper">
+            <svg class="input-icon-left" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+            </svg>
+            <select id="tipo" name="tipo" class="form-select" required>
+              <option value="" disabled selected>Selecione seu perfil</option>
+              <option value="Restaurante">Restaurante / Lanchonete</option>
+              <option value="Condominio">Condomínio Residencial</option>
+              <option value="Escola">Escola / Instituição de Ensino</option>
+              <option value="Empresa">Indústria / Empresa</option>
+              <option value="Residencial">Pessoa Física / Residencial</option>
+            </select>
+          </div>
+          <span class="field-error" id="tipoError" role="alert"></span>
+        </div>
+
+        <!-- Linha Dupla: Senha e Confirmação de Senha -->
+        <div class="form-row">
+          
+          <!-- Campo: Senha -->
+          <div class="form-group">
+            <label for="senha" class="form-label">
+              <span>Senha <span class="required" aria-hidden="true">*</span></span>
+            </label>
+            <div class="input-wrapper">
+              <svg class="input-icon-left" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+              </svg>
+              <input 
+                type="password" 
+                id="senha" 
+                name="senha" 
+                class="form-input" 
+                placeholder="Crie uma senha (mín. 6)" 
+                autocomplete="new-password" 
+                required
+              >
+              <button 
+                type="button" 
+                id="toggleSenhaBtn" 
+                class="btn-toggle-password" 
+                aria-label="Ver senha"
+                title="Mostrar ou ocultar senha"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                </svg>
+              </button>
+            </div>
+            <!-- Medidor de Força da Senha -->
+            <div id="passwordStrengthBox" class="password-strength">
+              <div class="password-strength__bar">
+                <div id="passwordStrengthFill" class="password-strength__fill"></div>
+              </div>
+              <span id="passwordStrengthText" class="password-strength__text"></span>
+            </div>
+            <span class="field-error" id="senhaError" role="alert"></span>
+          </div>
+
+          <!-- Campo: Confirmar Senha -->
+          <div class="form-group">
+            <label for="confirmarSenha" class="form-label">
+              <span>Confirmar senha <span class="required" aria-hidden="true">*</span></span>
+            </label>
+            <div class="input-wrapper">
+              <svg class="input-icon-left" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+              </svg>
+              <input 
+                type="password" 
+                id="confirmarSenha" 
+                name="confirmar_senha" 
+                class="form-input" 
+                placeholder="Repita sua senha" 
+                autocomplete="new-password" 
+                required
+              >
+              <button 
+                type="button" 
+                id="toggleConfirmarSenhaBtn" 
+                class="btn-toggle-password" 
+                aria-label="Ver confirmação de senha"
+                title="Mostrar ou ocultar confirmação"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                </svg>
+              </button>
+            </div>
+            <span class="field-error" id="confirmarSenhaError" role="alert"></span>
+          </div>
+
+        </div>
+
+        <!-- Botão Principal de Cadastro -->
+        <button type="submit" id="btnCadastrar" class="btn-submit">
+          <span>Cadastrar</span>
+        </button>
+
+        <!-- Navegação: Link para Retornar ao Login -->
+        <footer class="auth-footer">
+          <span>Já tem uma conta? </span>
+          <a href="login.html" id="linkLogin">Entrar</a>
+        </footer>
+
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Script de Validação e Interatividade do Cadastro -->
+  <script src="js/cadastro.js"></script>
+</body>
+</html>
